@@ -19,7 +19,7 @@ Repositório do trabalho de integração da Fatec Franca
 [ ] - Tela do cadastro de email para receber novas vagas.
 
 # Documentação
-- Samukinha Dev e Vitão Dev
+- Samukinha Dev, Vitão Dev, Rafa Dev
 
 ### RUP de engenharia de software
 
