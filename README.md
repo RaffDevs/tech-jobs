@@ -1,42 +1,65 @@
-# tech-jobs
-Repositório do trabalho de integração da Fatec Franca
+#  🔹TecJobs - PI/DSM 1° Período 💻🔹
+Repositório do trabalho de PI dos estudantes do 1° período do curso de Desenvolvimento de Software Multiplataforma da Fatec Franca. O projeto em questão se trata de um portal de estágios para os alunos da universidade.
 
+# Etapas do projeto:
+<ul>
+  <li>Design (Arthur)</li>
+  <li>Documentação (Samuel e Victor)</li>
+  <li>Front-End (Arthur, Samuel e Victor)</li>
+  <li>Back-End (Rafael)</li>
+</ul>
 
-# Design
-- Arthurzera Dev
+# Criando o projeto:
 
-### Prototipação das telas
+### 1 - Design 🎨
+[ ] - Escolha da paleta de cores
 
-[ ] - Tela sobre Fatec Franca
-  
-[ ] - Tela sobre nós (sobre a tech jobs)
+[ ] - Criação da identidade visual da marca TecJobs
 
-[ ] - Tela inicial:
-        * Referência: https://hardfranca.com.br/anuncios.php
-        
-[ ] - Tela detalhamento do vaga
+[ ] - Prototipação das telas
+<ul>
+  <li>Tela Inicial</li>
+  <li>Tela Sobre Nós</li>
+  <li>Tela Sobre Fatec Franca</li>
+  <li>Tela Detalhamento da vaga</li>
+  <li>Tela do cadastro de email para receber novas vagas.</li>
+</ul>
 
-[ ] - Tela do cadastro de email para receber novas vagas.
+Referências:
 
-# Documentação
-- Samukinha Dev, Vitão Dev, Rafa Dev
+Site Hard Franca - https://hardfranca.com.br/anuncios.php
 
-### RUP de engenharia de software
+Site Vagas UX - https://vagasux.com.br/
 
-[ ] - Referencia ao RUP do Fernando.
+Portal de estágios USP - https://estagios.fflch.usp.br/
 
+### 2 - Documentação 📚
+[ ] - Criação do RUP do projeto
 
-# Backend
-- Rafa Dev
+### 3 - Front-End 📄
+[ ] - Criação do HTML das páginas
 
-[ ] - CRUD backend (Python Flask)
+[ ] - Criação do CSS das páginas
 
+[ ] - Criação do JS das páginas
 
-# Frontend
-- Arthuzera
-- Vitão
-- Samuka
+Páginas:
+<ul>
+  <li>Tela Inicial</li>
+  <li>Tela Sobre Nós</li>
+  <li>Tela Sobre Fatec Franca</li>
+  <li>Tela Detalhamento da vaga</li>
+  <li>Tela do cadastro de email para receber novas vagas.</li>
+</ul>
 
-[ ] - Desenvolver telas da prototipação 
-
+### 3 - Back-End 💻
 [ ] - Implementar integração com API
+
+[ ] - CRUD backend (Java / Javaspring)
+
+[ ] - Autenticação JWT
+
+[ ] - Deploy no Render
+
+
+
