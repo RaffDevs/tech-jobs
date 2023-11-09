@@ -1,5 +1,7 @@
 package com.raffdevs.tecjobsapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class Company implements Serializable {
 
     @Column
     @OneToMany(mappedBy = "company")
+    @JsonIgnore
     private List<Employment> employments = new ArrayList<>();
 
     public Company() {}
@@ -26,6 +29,11 @@ public class Company implements Serializable {
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public String getName() {
         return name;
@@ -43,4 +51,11 @@ public class Company implements Serializable {
         this.aboutUs = aboutUs;
     }
 
+    public List<Employment> getEmployments() {
+        return employments;
+    }
+
+    public void setEmployments(List<Employment> employments) {
+        this.employments = employments;
+    }
 }

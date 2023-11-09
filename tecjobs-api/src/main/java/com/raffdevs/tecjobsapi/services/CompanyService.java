@@ -4,12 +4,15 @@ import com.raffdevs.tecjobsapi.dtos.CreateCompanyDTO;
 import com.raffdevs.tecjobsapi.dtos.UpdateCompanyDTO;
 import com.raffdevs.tecjobsapi.entities.Company;
 import com.raffdevs.tecjobsapi.exceptions.ResourceNotFoundException;
+import com.raffdevs.tecjobsapi.models.CompanyModel;
+import com.raffdevs.tecjobsapi.models.mapper.CompanyMapper;
 import com.raffdevs.tecjobsapi.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyService {
@@ -18,27 +21,32 @@ public class CompanyService {
     @Autowired
     private CompanyRepository repository;
 
-    public List<Company> findAll() {
+    public List<CompanyModel> findAll() {
         logger.info("Finding all companies!");
-        return repository.findAll();
+        return repository.findAll()
+                .stream()
+                .map(CompanyMapper::parseToModel)
+                .collect(Collectors.toList());
     }
 
-    public Company findById(Long id) {
+    public CompanyModel findById(Long id) {
         logger.info("Finding one company!");
-        return repository.findById(id)
+        var entity =  repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records for this ID!"));
+
+        return CompanyMapper.parseToModel(entity);
     }
 
-    public Company create(CreateCompanyDTO data) {
+    public CompanyModel create(CreateCompanyDTO data) {
         logger.info("Creating company!");
         Company company = new Company();
         company.setName(data.getName());
         company.setAboutUs(data.getAboutUs());
 
-        return repository.save(company);
+        return CompanyMapper.parseToModel(repository.save(company));
     }
 
-    public Company update(UpdateCompanyDTO data) {
+    public CompanyModel update(UpdateCompanyDTO data) {
         logger.info("Updating company!");
 
         var company = repository.findById(data.getId())
@@ -47,7 +55,7 @@ public class CompanyService {
         company.setName(data.getName());
         company.setAboutUs(data.getAboutUs());
 
-        return repository.save(company);
+        return CompanyMapper.parseToModel(repository.save(company));
 
     }
 

@@ -2,7 +2,7 @@ package com.raffdevs.tecjobsapi.controllers;
 
 import com.raffdevs.tecjobsapi.dtos.CreateCompanyDTO;
 import com.raffdevs.tecjobsapi.dtos.UpdateCompanyDTO;
-import com.raffdevs.tecjobsapi.entities.Company;
+import com.raffdevs.tecjobsapi.models.CompanyModel;
 import com.raffdevs.tecjobsapi.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,8 +18,8 @@ public class CompanyController {
     private CompanyService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Company>> findAll() {
-        List<Company> companies = this.service.findAll();
+    public ResponseEntity<List<CompanyModel>> findAll() {
+        List<CompanyModel> companies = this.service.findAll();
         return ResponseEntity.ok().body(companies);
     }
 
@@ -27,8 +27,8 @@ public class CompanyController {
             value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Company> findById(@PathVariable Long id) {
-        Company company = this.service.findById(id);
+    public ResponseEntity<CompanyModel> findById(@PathVariable Long id) {
+        CompanyModel company = this.service.findById(id);
         return ResponseEntity.ok().body(company);
     }
 
@@ -36,8 +36,8 @@ public class CompanyController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Company> create(@RequestBody CreateCompanyDTO data) {
-        Company company = this.service.create(data);
+    public ResponseEntity<CompanyModel> create(@RequestBody CreateCompanyDTO data) {
+        CompanyModel company = this.service.create(data);
         return ResponseEntity.ok(company);
     }
 
@@ -45,10 +45,10 @@ public class CompanyController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Company> update(
+    public ResponseEntity<CompanyModel> update(
             @RequestBody UpdateCompanyDTO data
     ) {
-        Company company = this.service.update(data);
+        CompanyModel company = this.service.update(data);
         return ResponseEntity.ok(company);
     }
 
