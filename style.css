@@ -1,0 +1,87 @@
+
+.minha-secao {
+    background-image: url(./img/tecjobs.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 680px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+}
+
+.minha-secao .conteudo{
+    margin: 0 auto;
+    
+}
+
+.minha-secao button {
+    font-size: 2em; 
+    padding: 20px 40px; 
+}
+
+.navbar-brand {
+    font-size: 50px !important; 
+    margin: 0;
+    padding: 0;
+    padding-top: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-weight: bold;
+}
+
+.navbar-brand img {
+    width: 6%;
+    vertical-align: middle;
+}
+
+.navbar-nav a{
+    font-weight: bold;
+}
+
+.logo{
+    width: 6%;
+    vertical-align: middle;
+}
+    
+.footer-container {
+    display: flex;
+    flex-direction: row; 
+}
+
+.footer-container > div {
+    flex: 1; 
+    width: 250px; 
+    margin: 0 10px;
+}
+
+.footer-container h2, .footer-container h5 {
+    text-align: left;
+}
+
+
+.menu a{
+    text-decoration: none;
+    color: black;
+}
+
+.footer-container h4 {
+    text-align: left;
+    font-size: 12px;
+    margin: 15px;
+}
+
+.footer-container .sobre{
+    padding: 60px;
+    padding-top: 0;
+}
+
+.footer-container .sobre img{
+    width: 30px;
+    vertical-align: middle;
+}
+
