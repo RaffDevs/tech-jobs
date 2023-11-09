@@ -2,14 +2,13 @@ package com.raffdevs.tecjobsapi.controllers;
 
 import com.raffdevs.tecjobsapi.dtos.CreateEmploymentDTO;
 import com.raffdevs.tecjobsapi.dtos.UpdateEmploymentDTO;
-import com.raffdevs.tecjobsapi.entities.Employment;
+import com.raffdevs.tecjobsapi.models.EmploymentModel;
 import com.raffdevs.tecjobsapi.services.EmploymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 
 @RestController
@@ -21,14 +20,14 @@ public class EmploymentController {
     @GetMapping(
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<List<Employment>> findAll() {
-        List<Employment> employments = this.service.findAll();
+    public ResponseEntity<List<EmploymentModel>> findAll() {
+        List<EmploymentModel> employments = this.service.findAll();
         return ResponseEntity.ok(employments);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Employment> findById(@PathVariable Long id) {
-        Employment employment = this.service.findById(id);
+    public ResponseEntity<EmploymentModel> findById(@PathVariable Long id) {
+        EmploymentModel employment = this.service.findById(id);
         return ResponseEntity.ok(employment);
     }
 
@@ -36,8 +35,8 @@ public class EmploymentController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Employment> create(@RequestBody CreateEmploymentDTO data) {
-        Employment employment = service.create(data);
+    public ResponseEntity<EmploymentModel> create(@RequestBody CreateEmploymentDTO data) {
+        EmploymentModel employment = service.create(data);
         return ResponseEntity.ok(employment);
     }
 
@@ -45,8 +44,8 @@ public class EmploymentController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<Employment> update(@RequestBody UpdateEmploymentDTO data) {
-        Employment employment = this.service.update(data);
+    public ResponseEntity<EmploymentModel> update(@RequestBody UpdateEmploymentDTO data) {
+        EmploymentModel employment = this.service.update(data);
         return ResponseEntity.ok(employment);
     }
 

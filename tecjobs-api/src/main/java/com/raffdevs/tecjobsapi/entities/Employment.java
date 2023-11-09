@@ -1,5 +1,7 @@
 package com.raffdevs.tecjobsapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -22,6 +24,7 @@ public class Employment implements Serializable {
     private Instant publishedAt;
     @ManyToOne()
     @JoinColumn(name = "company_id")
+    @JsonIgnore
     private Company company;
 
     public Employment() {}

@@ -4,6 +4,9 @@ import com.raffdevs.tecjobsapi.dtos.CreateEmploymentDTO;
 import com.raffdevs.tecjobsapi.dtos.UpdateEmploymentDTO;
 import com.raffdevs.tecjobsapi.entities.Employment;
 import com.raffdevs.tecjobsapi.exceptions.ResourceNotFoundException;
+import com.raffdevs.tecjobsapi.models.EmploymentModel;
+import com.raffdevs.tecjobsapi.models.mapper.CompanyMapper;
+import com.raffdevs.tecjobsapi.models.mapper.EmploymentMapper;
 import com.raffdevs.tecjobsapi.repositories.EmploymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Service
 public class EmploymentService {
@@ -22,19 +26,24 @@ public class EmploymentService {
     @Autowired
     CompanyService service;
 
-    public List<Employment> findAll() {
+    public List<EmploymentModel> findAll() {
         logger.info("Finding all employments!");
-        return repository.findAll();
+        return repository.findAll()
+                .stream()
+                .map(EmploymentMapper::parseToModel)
+                .collect(Collectors.toList());
     }
 
-    public Employment findById(Long id) {
+    public EmploymentModel findById(Long id) {
         logger.info("Finding one employment!");
 
-        return repository.findById(id)
+        var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+
+        return EmploymentMapper.parseToModel(entity);
     }
 
-    public Employment create(CreateEmploymentDTO data) {
+    public EmploymentModel create(CreateEmploymentDTO data) {
         logger.info("Creating one employment!");
         var company = service.findById(data.getcompanyId());
         Employment employment = new Employment();
@@ -43,12 +52,12 @@ public class EmploymentService {
         employment.setRequirements(data.getRequirements());
         employment.setQtPositions(data.getQtPositions());
         employment.setPublishedAt(Instant.now());
-        employment.setCompany(company);
+        employment.setCompany(CompanyMapper.parseToEntity(company));
 
-        return repository.save(employment);
+        return EmploymentMapper.parseToModel(repository.save(employment));
     }
 
-    public Employment update(UpdateEmploymentDTO data) {
+    public EmploymentModel update(UpdateEmploymentDTO data) {
         var employment = repository.findById(data.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
         var company = service.findById(data.getCompanyId());
@@ -56,9 +65,9 @@ public class EmploymentService {
         employment.setDescription(data.getDescription());
         employment.setRequirements(data.getRequirements());
         employment.setQtPositions(data.getQtPositions());
-        employment.setCompany(company);
+        employment.setCompany(CompanyMapper.parseToEntity(company));
 
-        return repository.save(employment);
+        return EmploymentMapper.parseToModel(repository.save(employment));
     }
 
     public void delete(Long id) {
