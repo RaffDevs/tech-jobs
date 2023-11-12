@@ -34,7 +34,8 @@ Site Vagas UX - https://vagasux.com.br/
 Portal de estágios USP - https://estagios.fflch.usp.br/
 
 ### 2 - Documentação 📚
-[ ] - Criação do RUP do projeto
+[x] - Criação do RUP do projeto
+      Link: https://docs.google.com/document/d/1IHnH1oLvjm_Y3sA8ezwGK5_EW6EFnncVfTEG1i18XBY/edit?usp=sharing
 
 ### 3 - Front-End 📄
 [ ] - Criação do HTML das páginas
