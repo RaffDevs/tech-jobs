@@ -1,3 +1,10 @@
+.fundo {
+    background-color: var(--cor-fundo);
+}
+
+:root {
+    --cor-fundo: #001064;
+}
 
 .minha-secao {
     background-image: url(./img/tecjobs.png);
@@ -36,7 +43,7 @@
 
 .navbar-brand img {
     width: 6%;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
 .navbar-nav a{
@@ -45,7 +52,7 @@
 
 .logo{
     width: 6%;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
     
 .footer-container {
@@ -82,6 +89,24 @@
 
 .footer-container .sobre img{
     width: 30px;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
+.debug{
+    background-color: red;
+}
+
+.min-height-300 {
+    min-height: 600px;
+}
+
+.pec{
+    width: 20px;
+    height: 20px;
+}
+
+.carrossel-img {
+    width: 900px;
+    height: 600px;
+    object-fit: cover;
+}
