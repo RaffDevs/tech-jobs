@@ -11,7 +11,7 @@ using TecJobsAPI.Context;
 namespace TecJobsAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231124223717_InitialCreate")]
+    [Migration("20231124225212_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
