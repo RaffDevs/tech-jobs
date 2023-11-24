@@ -17,7 +17,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    options.UseSqlServer(connectionString);
+    options.UseSqlite(connectionString);
 });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -65,7 +65,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Header de autorização JWT usando o esquema Bearer. Informe o bearer."
+        Description = "Header de autorização JWT usando o esquema Bearer. Informe o token da seguinte forma: Bearer <token>."
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
