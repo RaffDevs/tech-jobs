@@ -26,5 +26,6 @@ RUN dotnet publish "TecJobsAPI.csproj" -c $configuration -o /app/publish /p:UseA
 
 FROM base AS final
 WORKDIR /app
+COPY ["app.db", "/app/"]
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TecJobsAPI.dll"]
