@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TecJobsAPI.DTO;
 using TecJobsAPI.Exceptions;
@@ -75,6 +76,7 @@ namespace TecJobsAPI.Controllers
 
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost]
         public async Task<IActionResult> CreateCompany(CreateCompanyDTO data)
         {
@@ -101,6 +103,7 @@ namespace TecJobsAPI.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCompany(int id, UpdateCompanyDTO data)
         {
@@ -128,6 +131,7 @@ namespace TecJobsAPI.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCompany(int id)
         {

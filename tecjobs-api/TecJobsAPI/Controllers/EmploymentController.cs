@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TecJobsAPI.DTO;
 using TecJobsAPI.Exceptions;
 using TecJobsAPI.Services;
 
-// [TODO]Ver o pq em caso de buscar id inexistente estar retornando 500 ao inves de 404
 // [TODO] Documentar o swagger
 namespace TecJobsAPI.Controllers
 {
@@ -79,6 +79,7 @@ namespace TecJobsAPI.Controllers
 
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPost]
         public async Task<IActionResult> CreateEmployment(CreateEmploymentDTO data)
         {
@@ -105,6 +106,7 @@ namespace TecJobsAPI.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEmployment(int id, UpdateEmploymentDTO data)
         {
@@ -132,6 +134,7 @@ namespace TecJobsAPI.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployment(int id)
         {
