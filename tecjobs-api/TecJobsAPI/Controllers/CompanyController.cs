@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TecJobsAPI.DTO;
@@ -30,17 +32,9 @@ namespace TecJobsAPI.Controllers
             }
             catch (ExceptionReponse ex)
             {
-                if (ex.IsInternalError)
-                {
-                    return StatusCode(500, new
-                    {
-                        ex.Message
-                    });
-                }
-
                 return StatusCode(500, new
                 {
-                    Message = "Can't get companies!"
+                    ex.Message
                 });
 
             }
@@ -51,23 +45,31 @@ namespace TecJobsAPI.Controllers
         {
             try
             {
-                var result = await _service.GetCompanyById(id);
-                return Ok(result);
-            }
-            catch (ExceptionReponse ex)
-            {
-                if (ex.IsInternalError)
+                var company = await _service.GetCompanyById(id);
+
+                if (company == null)
                 {
-                    return StatusCode(500, new
+                    return NotFound(new
                     {
-                        ex.Message
+                        Message = "No records found for this ID!",
+                        ErrorCode = 404
                     });
                 }
 
-                return NotFound(new
+                var jsonOptions = new JsonSerializerOptions
                 {
-                    ex.Message,
-                    ErrorCode = 404
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles
+                };
+
+                var jsonResult = JsonSerializer.Serialize(company, jsonOptions);
+
+                return Ok(jsonResult);
+            }
+            catch (ExceptionReponse ex)
+            {
+                return StatusCode(500, new
+                {
+                    ex.Message
                 });
             }
 
@@ -79,22 +81,23 @@ namespace TecJobsAPI.Controllers
             try
             {
                 var result = await _service.CreateCompany(data);
+
+                if (result == null)
+                {
+                    return StatusCode(500, new
+                    {
+                        Message = "Can't create comapany"
+                    });
+                }
                 return Ok(result);
             }
             catch (ExceptionReponse ex)
             {
-                if (ex.IsInternalError)
-                {
-                    return StatusCode(500, new
-                    {
-                        ex.Message
-                    });
-                }
-
                 return StatusCode(500, new
                 {
-                    Message = "Can't create comapany"
+                    ex.Message
                 });
+
             }
         }
 
@@ -104,23 +107,24 @@ namespace TecJobsAPI.Controllers
             try
             {
                 var result = await _service.UpdateCompany(id, data);
+
+                if (result == null)
+                {
+                    return NotFound(new
+                    {
+                        Message = "No records found for this ID!",
+                        ErrorCode = 404
+                    });
+                }
                 return Ok(result);
             }
             catch (ExceptionReponse ex)
             {
-                if (ex.IsInternalError)
+                return StatusCode(500, new
                 {
-                    return StatusCode(500, new
-                    {
-                        ex.Message
-                    });
-                }
-
-                return NotFound(new
-                {
-                    ex.Message,
-                    ErrorCode = 404
+                    ex.Message
                 });
+
             }
         }
 
@@ -130,22 +134,23 @@ namespace TecJobsAPI.Controllers
             try
             {
                 var result = await _service.DeleteCompany(id);
-                return NoContent();
-            }
-            catch (ExceptionReponse ex)
-            {
-                if (ex.IsInternalError)
+
+                if (result)
                 {
-                    return StatusCode(500, new
-                    {
-                        ex.Message
-                    });
+                    return NoContent();
                 }
 
                 return NotFound(new
                 {
-                    ex.Message,
+                    Message = "No records found for this ID!",
                     ErrorCode = 404
+                });
+            }
+            catch (ExceptionReponse ex)
+            {
+                return StatusCode(500, new
+                {
+                    ex.Message
                 });
             }
         }

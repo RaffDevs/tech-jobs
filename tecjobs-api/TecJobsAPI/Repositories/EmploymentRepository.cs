@@ -23,16 +23,12 @@ namespace TecJobsAPI.Repositories
             return await _db.Employment.Include(e => e.Company).ToListAsync();
         }
 
-        public async Task<List<Employment>> GetAllByCompany(int companyId)
-        {
-            return await _db.Employment
-                .Where(e => e.CompanyId == companyId)
-                .ToListAsync();
-        }
-
         public async Task<Employment> GetById(int id)
         {
-            return await _db.Employment.FindAsync(id);
+            return await _db.Employment
+                .Where(e => e.Id == id)
+                .Include(e => e.Company)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Employment> Create(CreateEmploymentDTO data)

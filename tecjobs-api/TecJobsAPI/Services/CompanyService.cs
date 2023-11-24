@@ -38,15 +38,10 @@ namespace TecJobsAPI.Services
             {
                 var company = await _repository.GetById(id);
 
-                if (company == null)
-                {
-                    throw new ExceptionReponse("No records found for this ID!", false);
-                }
                 return company;
             }
             catch (Exception ex)
             {
-
                 throw new ExceptionReponse("A internal error ocurred!", true);
             }
         }
@@ -56,11 +51,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var result = await _repository.Create(data);
-
-                if (result == null)
-                {
-                    throw new ExceptionReponse("Error on save company!", false);
-                }
 
                 return result;
             }
@@ -77,11 +67,6 @@ namespace TecJobsAPI.Services
             {
                 var result = await _repository.Update(id, data);
 
-                if (result == null)
-                {
-                    throw new ExceptionReponse("No records found for this ID!", false);
-                }
-
                 return result;
             }
             catch (Exception ex)
@@ -96,11 +81,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var result = await _repository.Delete(id);
-
-                if (!result)
-                {
-                    throw new ExceptionReponse("No records found for this ID", false);
-                }
 
                 return result;
             }

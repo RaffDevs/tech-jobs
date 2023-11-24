@@ -36,30 +36,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var employment = await _repository.GetById(id);
-
-                if (employment == null)
-                {
-                    throw new ExceptionReponse("No records found for this ID!", false);
-                }
-                return employment;
-            }
-            catch (Exception ex)
-            {
-
-                throw new ExceptionReponse("A internal error ocurred!", true);
-            }
-        }
-
-        public async Task<List<Employment>> GetEmploymentsByCompanyId(int companyId)
-        {
-            try
-            {
-                var employment = await _repository.GetAllByCompany(companyId);
-
-                if (employment == null)
-                {
-                    throw new ExceptionReponse("No records found for this ID!", false);
-                }
                 return employment;
             }
             catch (Exception ex)
@@ -74,12 +50,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var result = await _repository.Create(data);
-
-                if (result == null)
-                {
-                    throw new ExceptionReponse("Error on save employment!", false);
-                }
-
                 return result;
             }
             catch (Exception ex)
@@ -94,12 +64,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var result = await _repository.Update(id, data);
-
-                if (result == null)
-                {
-                    throw new ExceptionReponse("No records found for this ID!", false);
-                }
-
                 return result;
             }
             catch (Exception ex)
@@ -114,12 +78,6 @@ namespace TecJobsAPI.Services
             try
             {
                 var result = await _repository.Delete(id);
-
-                if (!result)
-                {
-                    throw new ExceptionReponse("No records found for this ID", false);
-                }
-
                 return result;
             }
             catch (Exception ex)
