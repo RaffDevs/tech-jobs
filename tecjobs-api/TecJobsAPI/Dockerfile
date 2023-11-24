@@ -27,6 +27,6 @@ RUN dotnet publish "TecJobsAPI.csproj" -c $configuration -o /app/publish /p:UseA
 FROM base AS final
 WORKDIR /app
 COPY ["app.db", "/app/"]
-RUN chmod 777 /app
+RUN chmod 777 /app/app.db
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TecJobsAPI.dll"]
