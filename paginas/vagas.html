@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Início</a>
+                            <a class="nav-link" aria-current="page" href="./index.html">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./fatec.html">Fatec Franca</a>
@@ -36,7 +36,7 @@
                             <a class="nav-link" href="#">Sobre nós</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Área Restrita</a>
+                            <a class="nav-link active" href="./vagas.html">Vagas</a>
                         </li>
                     </ul>
                 </div>
@@ -45,13 +45,13 @@
     </header>
 
     <section>
-        <div class="d-flex align-items-center justify-content-center fundo text-white">
-            <div class="min-height-300 d-flex flex-column align-items-start mt-4">
+        <div class="d-flex align-items-center justify-content-center fundo text-white p-4">
+            <div class=" d-flex flex-column align-items-start mt-4">
                 <h1>VAGAS</h1>
 
                 <form class="d-flex mb-3 w-100 mt-4" role="search">
                     <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit"><img src="./img/lupa.svg" class="pec"></button>
+                    <button class="btn btn-outline-light" type="submit"><img src="./img/lupa.svg" class="pec"></button>
                 </form>
                 <div class="d-flex flex-column mt-4">
                     <h2 class="align-self-center">Encontre as melhores oportunidades do mercado de tecnologia.</h2>
@@ -71,7 +71,7 @@
                     <div class="card-header">Magazine</div>
                     <div class="card-body">
                         <h5 class="card-title">Oportunidade de Estágio em Desenvolvimento C#</h5>
-                        
+
                     </div>
                 </div>
 
@@ -178,47 +178,46 @@
 
     </section>
 
-    <footer>
-        <div class="footer-container bg-body-secondary">
-            <div class="sobre">
-                <h1>TECJOBS<img src="./img/curriculum.png" class="logo"></h1>
-                <h5>Um site de empregos, é onde empresas anunciam vagas e pessoas procuram trabalho. Conecta
-                    empregadores a candidatos, tornando a busca por emprego e a contratação mais fácil.</h5>
-            </div>
-            <div>
-                <h2>Menu</h2>
-                <ul class="list-group list-group-flush menu ">
-                    <li class="list-group-item bg-body-secondary"><a href="./index.html">Início</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="./fatec.html">Fatec Franca</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="#">Sobre nós</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="#">Área Restrita</a></li>
-                </ul>
-            </div>
+    <footer class="bg-body-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sobre mt-4">
+                    <h1>TECJOBS<img src="./img/curriculum.png" class="logo"></h1>
+                    <h5>Um site de empregos, é onde empresas anunciam vagas e pessoas procuram trabalho. Conecta
+                        empregadores a candidatos, tornando a busca por emprego e a contratação mais fácil.</h5>
+                </div>
 
-            <div>
-                <h2>Fale conosco</h2>
+                <div class="col-md-4 mt-4">
+                    <h2>Menu</h2>
+                    <ul class="list-group list-group-flush menu">
+                        <li class="list-group-item bg-body-secondary"><a href="./index.html">Início</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./fatec.html">Fatec Franca</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="#">Sobre nós</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="#">Área Restrita</a></li>
+                    </ul>
+                </div>
 
-                <h4>
-                    <img src="./img/location.svg" class="logo">R.Irênio Greco, 4580 - Vila Imperador, Franca-SP,
-                    14405-191
-                </h4>
-                <h4>
-                    <img src="./img/telephone.svg" class="logo">(16)3702-3204
-                </h4>
-                <h4>
-                    <img src="./img/mail.svg" class="logo">tecjobs@tecjobs.com.br
-                </h4>
-            </div>
+                <div class="col-md-4 mt-4">
+                    <h2>Fale conosco</h2>
+                    <h4><img src="./img/location.svg" class="logo">R.Irênio Greco, 4580 - Vila Imperador, Franca-SP,
+                        14405-191</h4>
+                    <h4><img src="./img/telephone.svg" class="logo">(16)3702-3204</h4>
+                    <h4><img src="./img/mail.svg" class="logo">tecjobs@tecjobs.com.br</h4>
+                </div>
 
-            <div>
-                <h2>Categoria de vagas</h2>
-                <ul class="list-group list-group-flush menu">
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Desevolvimento de Software
-                            Multiplataforma</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Analise Desenvolvimento de Sistema</a>
-                    </li>
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Gestão de Recursos Humanos</a></li>
-                </ul>
+                <!-- Para implementar -->
+
+                <!-- <div class="col-md-4 mt-4">
+                        <h2>Categoria de vagas</h2>
+                        <ul class="list-group list-group-flush menu">
+                            <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Desenvolvimento de
+                                    Software Multiplataforma</a></li>
+                            <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Análise Desenvolvimento de
+                                    Sistema</a></li>
+                            <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Gestão de Recursos
+                                    Humanos</a></li>
+                        </ul>
+                    </div> -->
             </div>
         </div>
     </footer>

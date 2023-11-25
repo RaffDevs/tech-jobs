@@ -16,11 +16,12 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary col-sm-12 ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary col-sm-12">
             <div class="container">
                 <a class="navbar-brand" href="#">TECJOBS<img src="./img/curriculum.png"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -36,7 +37,7 @@
                             <a class="nav-link" href="#">Sobre nós</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Área Restrita</a>
+                            <a class="nav-link" href="./vagas.html">Vagas</a>
                         </li>
                     </ul>
                 </div>
@@ -44,8 +45,8 @@
         </nav>
     </header>
 
-    <section>
-        <div class="minha-secao text-center">
+    <section class="minha-secao text-center">
+        <div class="container">
             <div class="conteudo">
                 <h1>Junte-se à Nossa Comunidade de Emprego.</h1>
                 <a href="./vagas.html">
@@ -55,47 +56,46 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container bg-body-secondary">
-            <div class="sobre">
-                <h1>TECJOBS<img src="./img/curriculum.png" class="logo"></h1>
-                <h5>Um site de empregos, é onde empresas anunciam vagas e pessoas procuram trabalho. Conecta
-                    empregadores a candidatos, tornando a busca por emprego e a contratação mais fácil.</h5>
-            </div>
-            <div>
-                <h2>Menu</h2>
-                <ul class="list-group list-group-flush menu ">
-                    <li class="list-group-item bg-body-secondary"><a href="./index.html">Início</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="./fatec.html">Fatec Franca</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="#">Sobre nós</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="#">Área Restrita</a></li>
-                </ul>
-            </div>
+    <footer class="bg-body-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 sobre mt-4">
+                    <h1>TECJOBS<img src="./img/curriculum.png" class="logo"></h1>
+                    <h5>Um site de empregos, é onde empresas anunciam vagas e pessoas procuram trabalho. Conecta
+                        empregadores a candidatos, tornando a busca por emprego e a contratação mais fácil.</h5>
+                </div>
 
-            <div>
-                <h2>Fale conosco</h2>
+                <div class="col-md-4 mt-4">
+                    <h2>Menu</h2>
+                    <ul class="list-group list-group-flush menu">
+                        <li class="list-group-item bg-body-secondary"><a href="./index.html">Início</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./fatec.html">Fatec Franca</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="#">Sobre nós</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="#">Área Restrita</a></li>
+                    </ul>
+                </div>
 
-                <h4>
-                    <img src="./img/location.svg" class="logo">R.Irênio Greco, 4580 - Vila Imperador, Franca-SP,
-                    14405-191
-                </h4>
-                <h4>
-                    <img src="./img/telephone.svg" class="logo">(16)3702-3204
-                </h4>
-                <h4>
-                    <img src="./img/mail.svg" class="logo">tecjobs@tecjobs.com.br
-                </h4>
-            </div>
+                <div class="col-md-4 mt-4">
+                    <h2>Fale conosco</h2>
+                    <h4><img src="./img/location.svg" class="logo">R.Irênio Greco, 4580 - Vila Imperador, Franca-SP,
+                        14405-191</h4>
+                    <h4><img src="./img/telephone.svg" class="logo">(16)3702-3204</h4>
+                    <h4><img src="./img/mail.svg" class="logo">tecjobs@tecjobs.com.br</h4>
+                </div>
 
-            <div>
-                <h2>Categoria de vagas</h2>
-                <ul class="list-group list-group-flush menu">
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Desevolvimento de Software
-                            Multiplataforma</a></li>
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Analise Desenvolvimento de Sistema</a>
-                    </li>
-                    <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Gestão de Recursos Humanos</a></li>
-                </ul>
+                <!-- Para implementar -->
+
+                <!-- <div class="col-md-4 mt-4">
+                    <h2>Categoria de vagas</h2>
+                    <ul class="list-group list-group-flush menu">
+                        <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Desenvolvimento de
+                                Software Multiplataforma</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Análise Desenvolvimento de
+                                Sistema</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Gestão de Recursos
+                                Humanos</a></li>
+                    </ul>
+                </div> -->
             </div>
         </div>
     </footer>
