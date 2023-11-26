@@ -50,8 +50,10 @@
                 <h1>VAGAS</h1>
 
                 <form class="d-flex mb-3 w-100 mt-4" role="search">
-                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit"><img src="./img/lupa.svg" class="pec"></button>
+                    <input id="search-input" class="form-control me-2 " type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button id="button-search" class="btn btn-outline-light" type="button"><img src="./img/lupa.svg"
+                            class="pec"></button>
                 </form>
                 <div class="d-flex flex-column mt-4">
                     <h2 class="align-self-center">Encontre as melhores oportunidades do mercado de tecnologia.</h2>
@@ -66,113 +68,7 @@
                 <h1>Vagas de Tecnologia em Destaque</h1>
             </div>
 
-            <div class="d-flex flex-wrap justify-content-center mt-4">
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Magazine</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Oportunidade de Estágio em Desenvolvimento C#</h5>
-
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Magazine</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Amazon</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">PicPay</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">PicPay</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Amazon</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Mercado Livre</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Mercado livre</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Amazon</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Mercado livre</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Mercado livre</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card text-bg-primary mb-3 m-3" style="max-width: 18rem;">
-                    <div class="card-header">Mercado livre</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
+            <div id="employment-grid" class="d-flex flex-wrap justify-content-center mt-4">
             </div>
 
 
@@ -235,30 +131,118 @@
 
     <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Endereço da API
-            const apiUrl = 'https://tecjobs-api.onrender.com/api/Employment';
+        function createEmploymentComponent(employment) {
+            const card = document.createElement('div');
+            card.className = 'card text-bg-primary mb-3 m-3';
+            card.setAttribute('id', employment.Id)
+            card.style.maxWidth = '18rem';
 
-            // Opções da requisição (método, cabeçalhos, etc.)
+            // Criação do elemento <a> com o atributo href
+            const link = document.createElement('a');
+            link.href = `./detalhamento.html?idVaga=${card.id}`;
+
+            // Criação do elemento <div> para o cabeçalho do card
+            const header = document.createElement('div');
+            header.className = 'card-header';
+            header.textContent = employment.Company.Name; // Aqui você pode acessar os dados do objeto
+
+            // Criação do elemento <div> para o corpo do card
+            const body = document.createElement('div');
+            body.className = 'card-body';
+
+            // Criação dos elementos <h5> e <p> dentro do corpo do card
+            const title = document.createElement('h5');
+            title.className = 'card-title';
+            title.textContent = employment.Title;
+
+            const description = document.createElement('p');
+            description.className = 'card-text text-truncate';
+            description.style.maxWidth = "250px"
+            description.textContent = employment.Description;
+
+            // Adiciona os elementos no DOM
+            body.appendChild(title);
+            body.appendChild(description);
+
+            link.appendChild(header);
+            link.appendChild(body);
+
+            card.appendChild(link);
+
+            return card
+        }
+
+        function getEmploymentsByTerm(term) {
+            const apiUrl = `https://tecjobs-api.onrender.com/api/Employment/t?term=${term}`;
+
             const requestOptions = {
-                method: 'GET', // Você pode alterar para 'POST', 'PUT', etc., conforme necessário.
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                    // Adicione quaisquer outros cabeçalhos necessários aqui.
                 },
-                // body: JSON.stringify(data) // Se você estiver enviando dados no corpo (por exemplo, para um POST ou PUT).
             };
 
-            // Fazendo a requisição usando o fetch
             fetch(apiUrl, requestOptions)
-                .then(response => response.json()) // Parse da resposta como JSON
+                .then(response => response.json())
                 .then(data => {
                     console.log('Resposta da API:', data);
-                    // Faça o que quiser com os dados aqui
+
+                    data.forEach(employment => {
+                        let card = createEmploymentComponent(employment);
+                        document.querySelector('#employment-grid').appendChild(card);
+                    });
+
                 })
                 .catch(error => {
                     console.error('Erro ao fazer a requisição:', error);
                 });
+        }
+
+        function getAllEmployments() {
+            const apiUrl = 'https://tecjobs-api.onrender.com/api/Employment';
+
+            // Opções da requisição (método, cabeçalhos, etc.)
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            };
+
+            // Fazendo a requisição usando o fetch
+            fetch(apiUrl, requestOptions)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Resposta da API:', data);
+                    // Adiciona os componentes para cada objeto na array
+                    data.forEach(employment => {
+                        // Criação do elemento <div> com as classes e estilos necessários
+                        let card = createEmploymentComponent(employment)
+                        // Adiciona o card ao elemento com id "container" (substitua pelo ID correto)
+                        document.querySelector('#employment-grid').appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao fazer a requisição:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelector('#button-search').addEventListener('click', function (event) {
+                event.preventDefault(); // Impede o envio padrão do formulário
+
+                const searchTerm = document.querySelector('#search-input').value;
+                if (searchTerm) {
+                    document.querySelector('#employment-grid').innerHTML = '';
+                    getEmploymentsByTerm(searchTerm)
+                    document.getElementById('searchInput').value = '';
+
+                }
+            });
+
+            getAllEmployments();
+
         });
     </script>
 
