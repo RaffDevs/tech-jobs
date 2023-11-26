@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary col-sm-12">
@@ -42,15 +44,11 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container-fluid">
         <div class="d-flex align-items-center justify-content-center fundo text-white p-4">
             <div class=" d-flex flex-column align-items-start mt-4">
                 <h1>VAGAS</h1>
 
-                <form class="d-flex mb-3 w-100 mt-4" role="search">
-                    <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit"><img src="./img/lupa.svg" class="pec"></button>
-                </form>
                 <div class="d-flex flex-column mt-4">
                     <h2 class="align-self-center">Encontre as melhores oportunidades do mercado de tecnologia.</h2>
                     <h5 class="align-self-center mt-4">Encontre vagas de Tecnologia nas melhores empresas do Brasil.
@@ -60,24 +58,18 @@
         </div>
 
         <div class="vagas">
-            <div class="menu1">
-                <div class="empresa">Logo Empresa</div>
-                <article class="publi"><img src="img/datavaga.png" alt="" width="16px" height="16px">Data de pub vaga</article>
-                <h1>Nome da vaga</h1>
+            <div id="employment-container" class="ms-4 row">
+                <div class="col-6">
+                    <h1>Nome da vaga</h1>
+                    <p id="vaga-titulo"></p>
+                </div>
+
                 <h4>Nome da empresa</h4>
-                <h4>Tipo de vaga</h4>
-                
-                <div class="menu2">
-                <p><img src="img/salario.png" alt="" width="16px" height="16px">Salário</p>
-                <p><img src="img/localidade.png" alt="" width="16px" height="16px">Localidade</p>
-                </div>
-
-                <span><p>Descrição da vaga</p></span>
-
-                <div class="menu3">
-    
-                    <button>CANDIDATAR</button>
-                </div>
+                <p id="empresa-nome"></p>
+                <h4>Descrição</h4>
+                <p id="descricao"></p>
+                <h4>Requisitos</h4>
+                <p id="requisitos"></p>
             </div>
         </div>
     </main>
@@ -96,8 +88,8 @@
                     <ul class="list-group list-group-flush menu">
                         <li class="list-group-item bg-body-secondary"><a href="./index.html">Início</a></li>
                         <li class="list-group-item bg-body-secondary"><a href="./fatec.html">Fatec Franca</a></li>
-                        <li class="list-group-item bg-body-secondary"><a href="#">Sobre nós</a></li>
-                        <li class="list-group-item bg-body-secondary"><a href="#">Área Restrita</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./sobre.html">Sobre nós</a></li>
+                        <li class="list-group-item bg-body-secondary"><a href="./vagas.html">Vagas</a></li>
                     </ul>
                 </div>
 
@@ -125,5 +117,52 @@
             </div>
         </div>
     </footer>
+
+    <script>
+
+        function getEmploymentById() {
+            let urlParams = new URLSearchParams(window.location.search);
+
+            const apiUrl = `https://tecjobs-api.onrender.com/api/Employment/${urlParams.get('idVaga')}`;
+
+            // Opções da requisição (método, cabeçalhos, etc.)
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            };
+
+            // Fazendo a requisição usando o fetch
+            fetch(apiUrl, requestOptions)
+                .then(response => response.json())
+                .then(employment => {
+                    console.log('Resposta da API:', employment);
+                    createEmploymentDescription(employment)
+                })
+                .catch(error => {
+                    console.error('Erro ao fazer a requisição:', error);
+                });
+        }
+
+        function createEmploymentDescription(employment) {
+            var vagaTitulo = document.querySelector('#vaga-titulo');
+            var empresaNome = document.querySelector('#empresa-nome');
+            var descricao = document.querySelector('#descricao');
+            var requisitos = document.querySelector('#requisitos');
+
+            // Interpola os dados nos elementos HTML
+            vagaTitulo.innerText = employment.Title;
+            empresaNome.innerText = employment.Company.Name;
+            descricao.innerText = employment.Description;
+            requisitos.innerText = employment.Requirements;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            getEmploymentById();
+        });
+
+    </script>
 </body>
+
 </html>
