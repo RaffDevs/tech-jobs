@@ -232,6 +232,36 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyW8jHQ4pbcFR8eRqndd4G2b3I1kmFIIcF"
         crossorigin="anonymous"></script>
 
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Endereço da API
+            const apiUrl = 'https://tecjobs-api.onrender.com/api/Employment';
+
+            // Opções da requisição (método, cabeçalhos, etc.)
+            const requestOptions = {
+                method: 'GET', // Você pode alterar para 'POST', 'PUT', etc., conforme necessário.
+                headers: {
+                    'Content-Type': 'application/json'
+                    // Adicione quaisquer outros cabeçalhos necessários aqui.
+                },
+                // body: JSON.stringify(data) // Se você estiver enviando dados no corpo (por exemplo, para um POST ou PUT).
+            };
+
+            // Fazendo a requisição usando o fetch
+            fetch(apiUrl, requestOptions)
+                .then(response => response.json()) // Parse da resposta como JSON
+                .then(data => {
+                    console.log('Resposta da API:', data);
+                    // Faça o que quiser com os dados aqui
+                })
+                .catch(error => {
+                    console.error('Erro ao fazer a requisição:', error);
+                });
+        });
+    </script>
+
 </body>
 
 </html>
