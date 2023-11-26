@@ -31,6 +31,19 @@ namespace TecJobsAPI.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<List<Employment>> GetByTerm(string value)
+        {
+            return await _db.Employment
+                .Where(e =>
+                    e.Title.ToLower().Contains(value.ToLower()) ||
+                    e.Description.ToLower().Contains(value.ToLower()) ||
+                    e.Requirements.ToLower().Contains(value.ToLower()) ||
+                    e.Company.Name.ToLower().Contains(value.ToLower())
+                )
+                .Include(e => e.Company)
+                .ToListAsync();
+        }
+
         public async Task<Employment> Create(CreateEmploymentDTO data)
         {
             Employment employment = new Employment

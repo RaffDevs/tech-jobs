@@ -47,6 +47,29 @@ namespace TecJobsAPI.Controllers
             }
         }
 
+        [HttpGet("t")]
+        public async Task<IActionResult> GetEmploymentsByTerm([FromQuery] string term)
+        {
+            try
+            {
+                var employments = await _service.GetEmploymentByTerm(term);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.IgnoreCycles
+                };
+                var jsonResult = JsonSerializer.Serialize(employments, jsonOptions);
+                return Ok(jsonResult);
+            }
+            catch (ExceptionReponse ex)
+            {
+                return StatusCode(500, new
+                {
+                    ex.Message
+                });
+
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEmploymentById(int id)
         {

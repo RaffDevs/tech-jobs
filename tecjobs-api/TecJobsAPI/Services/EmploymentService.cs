@@ -31,6 +31,19 @@ namespace TecJobsAPI.Services
             }
         }
 
+        public async Task<List<Employment>> GetEmploymentByTerm(string value)
+        {
+            try
+            {
+                var employments = await _repository.GetByTerm(value);
+                return employments;
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionReponse("A internal error ocurred!", true);
+            }
+        }
+
         public async Task<Employment> GetEmploymentById(int id)
         {
             try

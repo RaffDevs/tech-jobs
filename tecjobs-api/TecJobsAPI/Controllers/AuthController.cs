@@ -38,13 +38,14 @@ namespace TecJobsAPI.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet("Ping")]
         public ActionResult<string> Get()
         {
-            return $"Acessado em : {DateTime.Now.ToLongDateString()}";
+            return $"Access in : {DateTime.Now.ToLongDateString()}";
         }
 
-        [HttpPost("register")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [HttpPost("Register")]
         public async Task<ActionResult> RegisterUser(UserRegisterDTO data)
         {
             var user = new IdentityUser
@@ -65,7 +66,7 @@ namespace TecJobsAPI.Controllers
             return Ok();
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<ActionResult> Login(UserLoginDTO login)
         {
             var result = await _signInManager.PasswordSignInAsync(
