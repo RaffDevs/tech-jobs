@@ -6,17 +6,17 @@ Repositório do trabalho de PI dos estudantes do 1° período do curso de Desenv
   <li>Design (Arthur)</li>
   <li>Documentação (Samuel e Victor)</li>
   <li>Front-End (Arthur, Samuel e Victor)</li>
-  <li>Back-End (Rafael)</li>
+  <li>Back-End / Front-End (Rafael)</li>
 </ul>
 
 # Criando o projeto:
 
 ### 1 - Design 🎨
-[ ] - Escolha da paleta de cores
+[x] - Escolha da paleta de cores
 
-[ ] - Criação da identidade visual da marca TecJobs
+[x] - Criação da identidade visual da marca TecJobs
 
-[ ] - Prototipação das telas
+[x] - Prototipação das telas
 <ul>
   <li>Tela Inicial</li>
   <li>Tela Sobre Nós</li>
@@ -34,14 +34,14 @@ Site Vagas UX - https://vagasux.com.br/
 Portal de estágios USP - https://estagios.fflch.usp.br/
 
 ### 2 - Documentação 📚
-[ ] - Criação do RUP do projeto
+[X] - Criação do RUP do projeto
 
 ### 3 - Front-End 📄
-[ ] - Criação do HTML das páginas
+[X] - Criação do HTML das páginas
 
-[ ] - Criação do CSS das páginas
+[X] - Criação do CSS das páginas
 
-[ ] - Criação do JS das páginas
+[X] - Criação do JS das páginas
 
 Páginas:
 <ul>
@@ -53,13 +53,13 @@ Páginas:
 </ul>
 
 ### 3 - Back-End 💻
-[ ] - Implementar integração com API
+[X] - Implementar integração com API
 
-[ ] - CRUD backend (Java / Javaspring)
+[X] - CRUD backend (C# / Asp Net Core)
 
-[ ] - Autenticação JWT
+[X] - Autenticação JWT
 
-[ ] - Deploy no Render
+[X] - Deploy no Render
 
 
 
