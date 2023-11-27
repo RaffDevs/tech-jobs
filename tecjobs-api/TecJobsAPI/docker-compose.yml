@@ -3,16 +3,6 @@
 version: '3.4'
 
 services:
-  sql:
-    container_name: "tecjobsdb"
-    image: mcr.microsoft.com/mssql/server:latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=#yma2578k
-      - MSSQL_PID=Express
-    ports:
-      - "1433:1433"
-
   tecjobsapi:
     container_name: "tecjobsapi"
     image: tecjobsapi
