@@ -1,6 +1,8 @@
 #  🔹TecJobs - PI/DSM 1° Período 💻🔹
 Repositório do trabalho de PI dos estudantes do 1° período do curso de Desenvolvimento de Software Multiplataforma da Fatec Franca. O projeto em questão se trata de um portal de estágios para os alunos da universidade.
 
+<strong>Obs: A api está hospedada no Render, no plano gratuíto. Por padrão, a plataforma deixa o serviço "dormindo" quando não está sendo usado, e quando é solicitado "desperta" o serviço novamente. Dado isso, caso ao acessar, as vagas não sejam carregadas ou demorem, é necessário recarregar a página para que a requisição possa reativar o serviço.</strong>
+
 Link: https://tecjobs-web.onrender.com/index.html
 
 <div>
